@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GSProDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AirportPckUp">
+          <Key>
+            <PropertyRef Name="FlightNo" />
+          </Key>
+          <Property Name="FlightNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="LName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Contact" Type="bigint" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="40" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="ArrivalAirport" Type="nvarchar(max)" />
+          <Property Name="FlightName" Type="nvarchar(max)" />
+          <Property Name="ArrivalDate" Type="date" />
+          <Property Name="ArrivalTime" Type="time" Precision="7" />
+          <Property Name="APUserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Apartment">
+          <Key>
+            <PropertyRef Name="AptId" />
+          </Key>
+          <Property Name="AptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="RentRange" Type="nvarchar(max)" />
+          <Property Name="BedsxBath" Type="nvarchar(max)" />
+          <Property Name="Parking" Type="bit" />
+          <Property Name="Preferences" Type="nvarchar(max)" />
+          <Property Name="AUserId" Type="int" />
+        </EntityType>
+        <EntityType Name="BeachVoice">
+          <Key>
+            <PropertyRef Name="BeachVoiceId" />
+          </Key>
+          <Property Name="BeachVoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="QuestionCategory" Type="nvarchar(max)" />
+          <Property Name="Answer" Type="nvarchar(max)" />
+          <Property Name="BUserId" Type="int" />
+        </EntityType>
+        <EntityType Name="GoTour">
+          <Key>
+            <PropertyRef Name="TourId" />
+          </Key>
+          <Property Name="TourId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="LName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Contact" Type="bigint" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="40" />
+          <Property Name="TourDate" Type="date" />
+          <Property Name="TourTime" Type="time" Precision="7" />
+          <Property Name="TourType" Type="nvarchar(max)" />
+          <Property Name="GTUserId" Type="int" />
+        </EntityType>
+        <EntityType Name="KnowBeach">
+          <Key>
+            <PropertyRef Name="KnowBeachNo" />
+          </Key>
+          <Property Name="KnowBeachNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseNumber" Type="nvarchar(max)" />
+          <Property Name="CourseName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Professor" Type="nvarchar" MaxLength="30" />
+          <Property Name="Semester" Type="nvarchar" MaxLength="30" />
+          <Property Name="CourseLoadFactor" Type="int" />
+          <Property Name="CourseRating" Type="int" />
+          <Property Name="ProfessorRating" Type="int" />
+          <Property Name="KUserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Roommate">
+          <Key>
+            <PropertyRef Name="RmId" />
+          </Key>
+          <Property Name="RmId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="30" />
+          <Property Name="Age" Type="nvarchar" MaxLength="30" />
+          <Property Name="Program" Type="nvarchar" MaxLength="30" />
+          <Property Name="Rent" Type="nvarchar" MaxLength="30" />
+          <Property Name="Distance" Type="nvarchar" MaxLength="30" />
+          <Property Name="Sharing" Type="nvarchar" MaxLength="30" />
+          <Property Name="Pets" Type="nvarchar" MaxLength="30" />
+          <Property Name="Socially" Type="nvarchar" MaxLength="30" />
+          <Property Name="Cleanliness" Type="nvarchar" MaxLength="30" />
+          <Property Name="Smoking" Type="nvarchar" MaxLength="30" />
+          <Property Name="Working" Type="nvarchar" MaxLength="30" />
+          <Property Name="RUserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="int" Nullable="false" />
+          <Property Name="Passwd" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="FName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="LName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Contact" Type="bigint" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="40" />
+          <Property Name="Course" Type="nvarchar" MaxLength="40" />
+          <Property Name="Semester" Type="nvarchar" MaxLength="40" />
+          <Property Name="StudentType" Type="nvarchar" MaxLength="40" />
+          <Property Name="Volunteer" Type="bit" Nullable="false" />
+          <Property Name="LookingforApt" Type="bit" />
+          <Property Name="LookingforRoommate" Type="bit" />
+        </EntityType>
+        <Association Name="FK_AirportPckup_UserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="AirportPckUp" Type="Self.AirportPckUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="AirportPckUp">
+              <PropertyRef Name="APUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Apartment_UserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Apartment">
+              <PropertyRef Name="AUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BeachVoice_UserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="BeachVoice" Type="Self.BeachVoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="BeachVoice">
+              <PropertyRef Name="BUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GoTour_UserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="GoTour" Type="Self.GoTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="GoTour">
+              <PropertyRef Name="GTUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KnowBeach_KUserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="KnowBeach" Type="Self.KnowBeach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="KnowBeach">
+              <PropertyRef Name="KUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Roommate_UserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Roommate" Type="Self.Roommate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Roommate">
+              <PropertyRef Name="RUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GSProDbModelStoreContainer">
+          <EntitySet Name="AirportPckUp" EntityType="Self.AirportPckUp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apartment" EntityType="Self.Apartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BeachVoice" EntityType="Self.BeachVoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GoTour" EntityType="Self.GoTour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KnowBeach" EntityType="Self.KnowBeach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roommate" EntityType="Self.Roommate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AirportPckup_UserId_Student_UserId" Association="Self.FK_AirportPckup_UserId_Student_UserId">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="AirportPckUp" EntitySet="AirportPckUp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Apartment_UserId_Student_UserId" Association="Self.FK_Apartment_UserId_Student_UserId">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Apartment" EntitySet="Apartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BeachVoice_UserId_Student_UserId" Association="Self.FK_BeachVoice_UserId_Student_UserId">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="BeachVoice" EntitySet="BeachVoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GoTour_UserId_Student_UserId" Association="Self.FK_GoTour_UserId_Student_UserId">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="GoTour" EntitySet="GoTour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KnowBeach_KUserId_Student_UserId" Association="Self.FK_KnowBeach_KUserId_Student_UserId">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="KnowBeach" EntitySet="KnowBeach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roommate_UserId_Student_UserId" Association="Self.FK_Roommate_UserId_Student_UserId">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Roommate" EntitySet="Roommate" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GSProDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AirportPckUp">
+          <Key>
+            <PropertyRef Name="FlightNo" />
+          </Key>
+          <Property Name="FlightNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="Int64" />
+          <Property Name="EmailId" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ArrivalAirport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FlightName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ArrivalDate" Type="DateTime" Precision="0" />
+          <Property Name="ArrivalTime" Type="Time" Precision="7" />
+          <Property Name="APUserId" Type="Int32" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_AirportPckup_UserId_Student_UserId" FromRole="AirportPckUp" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Apartment">
+          <Key>
+            <PropertyRef Name="AptId" />
+          </Key>
+          <Property Name="AptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RentRange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BedsxBath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Parking" Type="Boolean" />
+          <Property Name="Preferences" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AUserId" Type="Int32" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Apartment_UserId_Student_UserId" FromRole="Apartment" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="BeachVoice">
+          <Key>
+            <PropertyRef Name="BeachVoiceId" />
+          </Key>
+          <Property Name="BeachVoiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QuestionCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BUserId" Type="Int32" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_BeachVoice_UserId_Student_UserId" FromRole="BeachVoice" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="GoTour">
+          <Key>
+            <PropertyRef Name="TourId" />
+          </Key>
+          <Property Name="TourId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="Int64" />
+          <Property Name="EmailId" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="TourDate" Type="DateTime" Precision="0" />
+          <Property Name="TourTime" Type="Time" Precision="7" />
+          <Property Name="TourType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GTUserId" Type="Int32" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_GoTour_UserId_Student_UserId" FromRole="GoTour" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="KnowBeach">
+          <Key>
+            <PropertyRef Name="KnowBeachNo" />
+          </Key>
+          <Property Name="KnowBeachNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CourseName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Professor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Semester" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CourseLoadFactor" Type="Int32" />
+          <Property Name="CourseRating" Type="Int32" />
+          <Property Name="ProfessorRating" Type="Int32" />
+          <Property Name="KUserId" Type="Int32" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_KnowBeach_KUserId_Student_UserId" FromRole="KnowBeach" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Roommate">
+          <Key>
+            <PropertyRef Name="RmId" />
+          </Key>
+          <Property Name="RmId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gender" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Program" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Rent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Distance" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Sharing" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Pets" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Socially" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Cleanliness" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Smoking" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Working" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RUserId" Type="Int32" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Roommate_UserId_Student_UserId" FromRole="Roommate" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <Property Name="Passwd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Contact" Type="Int64" />
+          <Property Name="EmailId" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Course" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Semester" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="StudentType" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Volunteer" Type="Boolean" Nullable="false" />
+          <Property Name="LookingforApt" Type="Boolean" />
+          <Property Name="LookingforRoommate" Type="Boolean" />
+          <NavigationProperty Name="AirportPckUps" Relationship="Self.FK_AirportPckup_UserId_Student_UserId" FromRole="Student" ToRole="AirportPckUp" />
+          <NavigationProperty Name="Apartments" Relationship="Self.FK_Apartment_UserId_Student_UserId" FromRole="Student" ToRole="Apartment" />
+          <NavigationProperty Name="BeachVoices" Relationship="Self.FK_BeachVoice_UserId_Student_UserId" FromRole="Student" ToRole="BeachVoice" />
+          <NavigationProperty Name="GoTours" Relationship="Self.FK_GoTour_UserId_Student_UserId" FromRole="Student" ToRole="GoTour" />
+          <NavigationProperty Name="KnowBeaches" Relationship="Self.FK_KnowBeach_KUserId_Student_UserId" FromRole="Student" ToRole="KnowBeach" />
+          <NavigationProperty Name="Roommates" Relationship="Self.FK_Roommate_UserId_Student_UserId" FromRole="Student" ToRole="Roommate" />
+        </EntityType>
+        <Association Name="FK_AirportPckup_UserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="AirportPckUp" Type="Self.AirportPckUp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="AirportPckUp">
+              <PropertyRef Name="APUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Apartment_UserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Apartment" Type="Self.Apartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Apartment">
+              <PropertyRef Name="AUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BeachVoice_UserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="BeachVoice" Type="Self.BeachVoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="BeachVoice">
+              <PropertyRef Name="BUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GoTour_UserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="GoTour" Type="Self.GoTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="GoTour">
+              <PropertyRef Name="GTUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KnowBeach_KUserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="KnowBeach" Type="Self.KnowBeach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="KnowBeach">
+              <PropertyRef Name="KUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Roommate_UserId_Student_UserId">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Roommate" Type="Self.Roommate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Roommate">
+              <PropertyRef Name="RUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GSProDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AirportPckUps" EntityType="Self.AirportPckUp" />
+          <EntitySet Name="Apartments" EntityType="Self.Apartment" />
+          <EntitySet Name="BeachVoices" EntityType="Self.BeachVoice" />
+          <EntitySet Name="GoTours" EntityType="Self.GoTour" />
+          <EntitySet Name="KnowBeaches" EntityType="Self.KnowBeach" />
+          <EntitySet Name="Roommates" EntityType="Self.Roommate" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <AssociationSet Name="FK_AirportPckup_UserId_Student_UserId" Association="Self.FK_AirportPckup_UserId_Student_UserId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="AirportPckUp" EntitySet="AirportPckUps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Apartment_UserId_Student_UserId" Association="Self.FK_Apartment_UserId_Student_UserId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Apartment" EntitySet="Apartments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BeachVoice_UserId_Student_UserId" Association="Self.FK_BeachVoice_UserId_Student_UserId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="BeachVoice" EntitySet="BeachVoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GoTour_UserId_Student_UserId" Association="Self.FK_GoTour_UserId_Student_UserId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="GoTour" EntitySet="GoTours" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KnowBeach_KUserId_Student_UserId" Association="Self.FK_KnowBeach_KUserId_Student_UserId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="KnowBeach" EntitySet="KnowBeaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roommate_UserId_Student_UserId" Association="Self.FK_Roommate_UserId_Student_UserId">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Roommate" EntitySet="Roommates" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GSProDbModelStoreContainer" CdmEntityContainer="GSProDbEntities">
+          <EntitySetMapping Name="AirportPckUps">
+            <EntityTypeMapping TypeName="GSProDbModel.AirportPckUp">
+              <MappingFragment StoreEntitySet="AirportPckUp">
+                <ScalarProperty Name="FlightNo" ColumnName="FlightNo" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ArrivalAirport" ColumnName="ArrivalAirport" />
+                <ScalarProperty Name="FlightName" ColumnName="FlightName" />
+                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+                <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+                <ScalarProperty Name="APUserId" ColumnName="APUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apartments">
+            <EntityTypeMapping TypeName="GSProDbModel.Apartment">
+              <MappingFragment StoreEntitySet="Apartment">
+                <ScalarProperty Name="AptId" ColumnName="AptId" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="RentRange" ColumnName="RentRange" />
+                <ScalarProperty Name="BedsxBath" ColumnName="BedsxBath" />
+                <ScalarProperty Name="Parking" ColumnName="Parking" />
+                <ScalarProperty Name="Preferences" ColumnName="Preferences" />
+                <ScalarProperty Name="AUserId" ColumnName="AUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BeachVoices">
+            <EntityTypeMapping TypeName="GSProDbModel.BeachVoice">
+              <MappingFragment StoreEntitySet="BeachVoice">
+                <ScalarProperty Name="BeachVoiceId" ColumnName="BeachVoiceId" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="QuestionCategory" ColumnName="QuestionCategory" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="BUserId" ColumnName="BUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoTours">
+            <EntityTypeMapping TypeName="GSProDbModel.GoTour">
+              <MappingFragment StoreEntitySet="GoTour">
+                <ScalarProperty Name="TourId" ColumnName="TourId" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="TourDate" ColumnName="TourDate" />
+                <ScalarProperty Name="TourTime" ColumnName="TourTime" />
+                <ScalarProperty Name="TourType" ColumnName="TourType" />
+                <ScalarProperty Name="GTUserId" ColumnName="GTUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KnowBeaches">
+            <EntityTypeMapping TypeName="GSProDbModel.KnowBeach">
+              <MappingFragment StoreEntitySet="KnowBeach">
+                <ScalarProperty Name="KnowBeachNo" ColumnName="KnowBeachNo" />
+                <ScalarProperty Name="CourseNumber" ColumnName="CourseNumber" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="Professor" ColumnName="Professor" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="CourseLoadFactor" ColumnName="CourseLoadFactor" />
+                <ScalarProperty Name="CourseRating" ColumnName="CourseRating" />
+                <ScalarProperty Name="ProfessorRating" ColumnName="ProfessorRating" />
+                <ScalarProperty Name="KUserId" ColumnName="KUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roommates">
+            <EntityTypeMapping TypeName="GSProDbModel.Roommate">
+              <MappingFragment StoreEntitySet="Roommate">
+                <ScalarProperty Name="RmId" ColumnName="RmId" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="Rent" ColumnName="Rent" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="Sharing" ColumnName="Sharing" />
+                <ScalarProperty Name="Pets" ColumnName="Pets" />
+                <ScalarProperty Name="Socially" ColumnName="Socially" />
+                <ScalarProperty Name="Cleanliness" ColumnName="Cleanliness" />
+                <ScalarProperty Name="Smoking" ColumnName="Smoking" />
+                <ScalarProperty Name="Working" ColumnName="Working" />
+                <ScalarProperty Name="RUserId" ColumnName="RUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="GSProDbModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Passwd" ColumnName="Passwd" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="StudentType" ColumnName="StudentType" />
+                <ScalarProperty Name="Volunteer" ColumnName="Volunteer" />
+                <ScalarProperty Name="LookingforApt" ColumnName="LookingforApt" />
+                <ScalarProperty Name="LookingforRoommate" ColumnName="LookingforRoommate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GSProDbModelStoreContainer" CdmEntityContainer="GSProDbEntities">
+    <EntitySetMapping Name="AirportPckUps">
+      <EntityTypeMapping TypeName="GSProDbModel.AirportPckUp">
+        <MappingFragment StoreEntitySet="AirportPckUp">
+          <ScalarProperty Name="FlightNo" ColumnName="FlightNo" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ArrivalAirport" ColumnName="ArrivalAirport" />
+          <ScalarProperty Name="FlightName" ColumnName="FlightName" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+          <ScalarProperty Name="APUserId" ColumnName="APUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Apartments">
+      <EntityTypeMapping TypeName="GSProDbModel.Apartment">
+        <MappingFragment StoreEntitySet="Apartment">
+          <ScalarProperty Name="AptId" ColumnName="AptId" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="RentRange" ColumnName="RentRange" />
+          <ScalarProperty Name="BedsxBath" ColumnName="BedsxBath" />
+          <ScalarProperty Name="Parking" ColumnName="Parking" />
+          <ScalarProperty Name="Preferences" ColumnName="Preferences" />
+          <ScalarProperty Name="AUserId" ColumnName="AUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeachVoices">
+      <EntityTypeMapping TypeName="GSProDbModel.BeachVoice">
+        <MappingFragment StoreEntitySet="BeachVoice">
+          <ScalarProperty Name="BeachVoiceId" ColumnName="BeachVoiceId" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="QuestionCategory" ColumnName="QuestionCategory" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="BUserId" ColumnName="BUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoTours">
+      <EntityTypeMapping TypeName="GSProDbModel.GoTour">
+        <MappingFragment StoreEntitySet="GoTour">
+          <ScalarProperty Name="TourId" ColumnName="TourId" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="TourDate" ColumnName="TourDate" />
+          <ScalarProperty Name="TourTime" ColumnName="TourTime" />
+          <ScalarProperty Name="TourType" ColumnName="TourType" />
+          <ScalarProperty Name="GTUserId" ColumnName="GTUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KnowBeaches">
+      <EntityTypeMapping TypeName="GSProDbModel.KnowBeach">
+        <MappingFragment StoreEntitySet="KnowBeach">
+          <ScalarProperty Name="KnowBeachNo" ColumnName="KnowBeachNo" />
+          <ScalarProperty Name="CourseNumber" ColumnName="CourseNumber" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Professor" ColumnName="Professor" />
+          <ScalarProperty Name="Semester" ColumnName="Semester" />
+          <ScalarProperty Name="CourseLoadFactor" ColumnName="CourseLoadFactor" />
+          <ScalarProperty Name="CourseRating" ColumnName="CourseRating" />
+          <ScalarProperty Name="ProfessorRating" ColumnName="ProfessorRating" />
+          <ScalarProperty Name="KUserId" ColumnName="KUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roommates">
+      <EntityTypeMapping TypeName="GSProDbModel.Roommate">
+        <MappingFragment StoreEntitySet="Roommate">
+          <ScalarProperty Name="RmId" ColumnName="RmId" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Program" ColumnName="Program" />
+          <ScalarProperty Name="Rent" ColumnName="Rent" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Sharing" ColumnName="Sharing" />
+          <ScalarProperty Name="Pets" ColumnName="Pets" />
+          <ScalarProperty Name="Socially" ColumnName="Socially" />
+          <ScalarProperty Name="Cleanliness" ColumnName="Cleanliness" />
+          <ScalarProperty Name="Smoking" ColumnName="Smoking" />
+          <ScalarProperty Name="Working" ColumnName="Working" />
+          <ScalarProperty Name="RUserId" ColumnName="RUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="GSProDbModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Passwd" ColumnName="Passwd" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="Semester" ColumnName="Semester" />
+          <ScalarProperty Name="StudentType" ColumnName="StudentType" />
+          <ScalarProperty Name="Volunteer" ColumnName="Volunteer" />
+          <ScalarProperty Name="LookingforApt" ColumnName="LookingforApt" />
+          <ScalarProperty Name="LookingforRoommate" ColumnName="LookingforRoommate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

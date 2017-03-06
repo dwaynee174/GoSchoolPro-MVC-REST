@@ -1,0 +1,118 @@
+﻿@model GoSchoolProMVC.Models.DB.Roommate
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="color:#ffd633">BeachRoomie</h2>
+<br />
+<h4 style="font-style:italic">Details of Post</h4>
+<br />
+
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Program)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Program)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sharing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sharing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Socially)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Socially)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cleanliness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cleanliness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smoking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smoking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Working)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Working)
+        </dd>
+
+        <dt>
+          Posted By
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FName)
+        </dd>
+
+    </dl>
+</div>
+<h4 style="color:#ffd633">
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.RmId }) |*@
+    @Html.ActionLink("Back to Postings", "Index")
+</h4>

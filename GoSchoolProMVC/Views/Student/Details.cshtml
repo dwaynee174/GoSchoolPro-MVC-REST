@@ -1,0 +1,123 @@
+﻿@model GoSchoolProMVC.Models.DB.Student
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passwd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Semester)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semester)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Volunteer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Volunteer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LookingforApt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LookingforApt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LookingforRoommate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LookingforRoommate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

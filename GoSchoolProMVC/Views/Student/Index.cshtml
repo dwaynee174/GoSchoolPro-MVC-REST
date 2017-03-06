@@ -1,0 +1,106 @@
+﻿@model IEnumerable<GoSchoolProMVC.Models.DB.Student>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Passwd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Semester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LookingforApt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LookingforRoommate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passwd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LookingforApt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LookingforRoommate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+        </td>
+    </tr>
+}
+
+</table>

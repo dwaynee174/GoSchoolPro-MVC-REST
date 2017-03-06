@@ -1,0 +1,83 @@
+﻿@model GoSchoolProMVC.Models.DB.KnowBeach
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KnowBeach</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Professor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Professor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Semester)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Semester)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseLoadFactor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseLoadFactor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfessorRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfessorRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Passwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Passwd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KnowBeachNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

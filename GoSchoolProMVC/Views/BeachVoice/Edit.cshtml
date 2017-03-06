@@ -1,0 +1,151 @@
+﻿@model GoSchoolProMVC.Models.DB.BeachVoice
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="color:#ffd633">BeachVoice</h2>
+<br />
+<h4 style="font-style:italic">Edit Your Post</h4>
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.BeachVoiceId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Question, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Question, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @{
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            listItems.Add(new SelectListItem
+            {
+                Text = "Academic",
+                Value = "Academic"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "Airport Pickup",
+                Value = "Airport Pickup",
+
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "Apartment",
+                Value = "Apartment"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "City",
+                Value = "City"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "Campus",
+                Value = "Campus",
+
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "Courses",
+                Value = "Courses"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "Fees",
+                Value = "Fees"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "GoTour",
+                Value = "GoTour",
+
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "Miscellaneous",
+                Value = "Miscellaneous"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "Professor",
+                Value = "Professor"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "Room-mates",
+                Value = "Room-mates"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "Student Activities",
+                Value = "Student Activities"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "Student Welfare",
+                Value = "Student Welfare",
+
+            });
+        }
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.QuestionCategory, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.QuestionCategory, listItems, "-- Select One Category --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.QuestionCategory, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Posted By
+            </div>
+            @*@Html.LabelFor(model => model.BUserId, "BUserId", htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Student.FName, new { htmlAttributes = new { @class = "form-control" } })
+                @*@html.dropdownlist("buserid", null, htmlattributes: new { @class = "form-control" })*@
+                @Html.ValidationMessageFor(model => model.Student.FName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+            <br />
+        
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

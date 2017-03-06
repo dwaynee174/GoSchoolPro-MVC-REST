@@ -1,0 +1,105 @@
+﻿@model IEnumerable<GoSchoolProMVC.Models.DB.Roommate>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="color:#ffd633">BeachRoomie</h2>
+<br />
+<h4 style="font-style:italic">View Room-mate posts here</h4>
+<br />
+
+<h4 style="color:#ffd633">
+    @Html.ActionLink("Create New Post", "Create")
+    </h4>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Program)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Distance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sharing)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pets)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Socially)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cleanliness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Smoking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Working)
+            </th>
+            <th>
+               Posted By
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Program)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sharing)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pets)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Socially)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cleanliness)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Smoking)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Working)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.FName)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.RmId }) |*@
+                    @Html.ActionLink("Details", "Details", new { id = item.RmId }) 
+                    @*| @Html.ActionLink("Delete", "Delete", new { id = item.RmId })*@
+                </td>
+            </tr>
+        }
+
+    </table>

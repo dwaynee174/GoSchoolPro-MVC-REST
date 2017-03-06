@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - GoSchoolPro</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body>
+    <!-- Jumbotron============== -->
+        
+    <div class="jumbotron" style="height:200px">
+        <div class="container">
+            <img src="~/Content/images/logo.gif" style="height:120px;width:600px;" />
+            <h1 style="text-align:right;font-weight:bold;margin-top:-80px">GoSchoolPro!</h1>
+            <p style="text-align:right; font-style:italic">A handy portal for the Students</p>
+       
+    </div>
+        </div>
+    <!-- Nav bar================= -->
+       
+    <div class="navbar-wrapper">
+    <div class="navbar navbar-inverse ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Home", "Index", "Home", new { @class = "navbar-brand" })</li>*@
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown">Menu<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("BeachVoice", "Index", "BeachVoice")</li>
+                            <li>@Html.ActionLink("Apartment Search", "Create", "Apartment")</li>
+                            <li>@Html.ActionLink("BeachRoomie", "Index", "Roommate")</li>
+                            <li>@Html.ActionLink("KnowBeach", "Create", "KnowBeach")</li>
+                            <li>@Html.ActionLink("Airport Pickup", "Create", "AirportPckUp")</li>
+                            <li>@Html.ActionLink("GoTour", "Create", "GoTour")</li>
+                        </ul>
+                    @*<li>@Html.ActionLink("FAQs", "Contact", "Home", new { @class = "navbar-brand" })</li>*@
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+        </div>
+    <br />
+    <br />
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="container-fluid text-center">
+            <p>&copy; @DateTime.Now.Year - GoSchoolPro -BY DHWANI S. PATEL</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

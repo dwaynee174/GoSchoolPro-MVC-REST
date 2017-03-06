@@ -1,0 +1,94 @@
+﻿@model IEnumerable<GoSchoolProMVC.Models.DB.AirportPckUp>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="color:#ffd633">Airport Pickup</h2>
+<br />
+<h4 style="font-style:italic">Scheduled Pickups</h4>
+<br />
+
+
+<h4 style="color:#ffd633">
+   @Html.ActionLink("Schedule", "Create")
+</h4>
+    
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalAirport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Student.Passwd)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalAirport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalTime)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Student.Passwd)
+        </td>*@
+        <td style="color:#ffd633">
+            @Html.ActionLink("Reschedule", "Edit", new { id=item.FlightNo }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.FlightNo }) |*@
+            @Html.ActionLink("Cancel", "Delete", new { id=item.FlightNo })
+        </td>
+    </tr>
+}
+
+</table>

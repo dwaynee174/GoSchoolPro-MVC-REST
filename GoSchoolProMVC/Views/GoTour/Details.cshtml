@@ -1,0 +1,83 @@
+﻿@model GoSchoolProMVC.Models.DB.GoTour
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GoTour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TourDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TourTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TourType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Passwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Passwd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TourId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

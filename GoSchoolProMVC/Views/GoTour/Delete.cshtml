@@ -1,0 +1,92 @@
+﻿@model GoSchoolProMVC.Models.DB.GoTour
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="color:#ffd633">GoTour Trip</h2>
+<br />
+<h4 style="font-style:italic">Cancel Trip</h4>
+<br />
+<h5 style="font-style:italic">Are you sure you want to cancel this trip?</h5>
+<br />
+<div>
+  
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TourDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TourTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TourType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TourType)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Student.Passwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Passwd)
+        </dd>*@
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Requested Trips", "Index")
+        </div>
+    }
+</div>

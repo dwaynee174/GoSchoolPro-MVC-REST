@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9cea9df8546b4db3ad872b61e92d01e3" Name="Diagram1">
+        <EntityTypeShape EntityType="GSProDbModel.AirportPckUp" Width="1.5" PointX="7.375" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSProDbModel.Apartment" Width="1.5" PointX="1.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSProDbModel.BeachVoice" Width="1.5" PointX="1.625" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSProDbModel.GoTour" Width="1.5" PointX="9.375" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSProDbModel.KnowBeach" Width="1.5" PointX="7.5" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSProDbModel.Roommate" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GSProDbModel.Student" Width="1.5" PointX="4.875" PointY="13.125" IsExpanded="true" />
+        <AssociationConnector Association="GSProDbModel.FK_AirportPckup_UserId_Student_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="GSProDbModel.FK_Apartment_UserId_Student_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="GSProDbModel.FK_BeachVoice_UserId_Student_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="GSProDbModel.FK_GoTour_UserId_Student_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="GSProDbModel.FK_KnowBeach_KUserId_Student_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="GSProDbModel.FK_Roommate_UserId_Student_UserId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

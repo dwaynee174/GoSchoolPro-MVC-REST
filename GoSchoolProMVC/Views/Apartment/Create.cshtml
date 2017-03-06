@@ -1,0 +1,189 @@
+﻿@model GoSchoolProMVC.Models.DB.Apartment
+@using Jmelosegui.Mvc.GoogleMap
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color:#ffd633">Apartment Search</h2>
+<br />
+<h4 style="font-style:italic">Enter Apartment Preferences</h4>
+<br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+       
+        <div class="row">
+            <div class="col-md-12">
+                @(Html.GoogleMap()
+  .Name("map")
+  .Height(500)
+  .ApiKey("AIzaSyC-FKB8W4oSi0hgdLqk4AWmvFxP-E0RbNc")
+  .Center(c => c.Latitude(33.783123)
+                          .Longitude(-118.113707))
+  .Markers(m => m.Add().Title("CSULB"))
+
+                )
+                @*@(Html.GoogleMap()
+        .Name("map")
+        .Height(500)
+         .ApiKey("AIzaSyC-FKB8W4oSi0hgdLqk4AWmvFxP-E0RbNc")
+        .Libraries(new[] { "places" })
+        .ClientEvents(events => events.OnMapLoaded("mapEvent"))
+                )*@
+            </div>
+        </div>
+        <hr />
+
+            
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*@{
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            listItems.Add(new SelectListItem
+            {
+                Text = "1200-2000",
+                Value = "1200-2000"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "1500-1800",
+                Value = "1500-1800"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "2100-2300",
+                Value = "2100-2300"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "2200-2800",
+                Value = "2200-2800"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "2500-2800",
+                Value = "2500-2800"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "2800-3000",
+                Value = "2800-3000"
+            });
+            listItems.Add(new SelectListItem
+            {
+                Text = "3500-4000",
+                Value = "3500-4000"
+            });
+        }*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RentRange, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RentRange, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RentRange, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    @{
+        List<SelectListItem> listItems = new List<SelectListItem>();
+        listItems.Add(new SelectListItem
+        {
+            Text = "1 Bed x 1 Bath",
+            Value = "1 Bed x 1 Bath"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "2 Bed x 1 Bath",
+            Value = "2 Bed x 1 Bath"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "2 Bed x 1.5 Bath",
+            Value = "2 Bed x 1.5 Bath"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "2 Bed x 2 Bath",
+            Value = "2 Bed x 2 Bath"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "3 Bed x 2 Bath",
+            Value = "3 Bed x 2 Bath"
+        });
+        listItems.Add(new SelectListItem
+        {
+            Text = "4 Bed x 3 Bath",
+            Value = "4 Bed x 3 Bath"
+        });
+    }
+        @*<p>
+            Beds x Bath: @Html.DropDownList("listItems", "All")
+            
+            <input type="submit" value="Filter" />
+        </p>*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.BedsxBath, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.BedsxBath, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.BedsxBath, listItems, "-- Select One Category --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BedsxBath, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Parking, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Parking)
+                    @Html.ValidationMessageFor(model => model.Parking, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Preferences, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Preferences, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Preferences, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="control-label col-md-2">
+                Posted By
+            </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Student.FName, new { htmlAttributes = new { @class = "form-control" } }) 
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Search" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<h4 style="color:#ffd633">
+    @Html.ActionLink("View Posts", "Index")
+</h4>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+@(Html.GoogleMap().ScriptRegistrar())
+}
+   

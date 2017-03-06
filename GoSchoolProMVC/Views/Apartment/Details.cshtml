@@ -1,0 +1,70 @@
+﻿@model GoSchoolProMVC.Models.DB.Apartment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="color:#ffd633">Apartment Search</h2>
+<br />
+<h4 style="font-style:italic">Post Details</h4>
+<br />
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentRange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentRange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BedsxBath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BedsxBath)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Parking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parking)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preferences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preferences)
+        </dd>
+
+        <dt>
+            Posted By
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FName)
+        </dd>
+
+    </dl>
+</div>
+<h4 style="color:#ffd633">
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.AptId }) |*@
+    @Html.ActionLink("Back to Posts", "Index")
+</h4>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<GoSchoolProMVC.Models.DB.Apartment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color:#ffd633">Apartment Search Listings</h2>
+<br />
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentRange)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BedsxBath)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Parking)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Preferences)
+        </th>
+        <th>
+           Posted By
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentRange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BedsxBath)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Parking)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Preferences)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FName)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.AptId }) |*@
+            @Html.ActionLink("Details", "Details", new { id=item.AptId })
+            @*|@Html.ActionLink("Delete", "Delete", new { id=item.AptId })*@
+        </td>
+    </tr>
+}
+
+</table>
+
+<h4 style="color:#ffd633">
+    @Html.ActionLink("Back to Search Page", "Create")
+    </h4>

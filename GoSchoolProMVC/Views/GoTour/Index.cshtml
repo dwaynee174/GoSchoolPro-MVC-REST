@@ -1,0 +1,79 @@
+﻿@model IEnumerable<GoSchoolProMVC.Models.DB.GoTour>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color:#ffd633">GoTour Trip</h2>
+<br />
+<h4 style="font-style:italic">Requested Trips</h4>
+<br />
+<h4 style="color:#ffd633">
+    @Html.ActionLink("Schedule", "Create")
+</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TourDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TourTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TourType)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Student.Passwd)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TourDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TourTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TourType)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Student.Passwd)
+        </td>*@
+        <td style="color:#ffd633">
+            @Html.ActionLink("Reschedule", "Edit", new { id=item.TourId }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.TourId }) |*@
+            @Html.ActionLink("Cancel", "Delete", new { id=item.TourId })
+        </td>
+    </tr>
+}
+
+</table>

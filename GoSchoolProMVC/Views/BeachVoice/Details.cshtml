@@ -1,0 +1,55 @@
+﻿@model GoSchoolProMVC.Models.DB.BeachVoice
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="color:#ffd633">BeachVoice</h2>
+<br />
+<h4 style="font-style:italic">Post Details</h4>
+<br />
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Question)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Question)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Answer)
+        </dd>
+
+        <dt>
+           Posted By
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FName)
+        </dd>
+
+    </dl>
+</div>
+
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.BeachVoiceId }) |*@
+<h4 style="color:#ffd633">
+    @Html.ActionLink("Back to List", "Index")
+    </h4>
+

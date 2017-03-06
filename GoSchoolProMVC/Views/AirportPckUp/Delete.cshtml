@@ -1,0 +1,108 @@
+﻿@model GoSchoolProMVC.Models.DB.AirportPckUp
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color:#ffd633">Airport Pickup</h2>
+<br />
+<h4 style="font-style:italic">Cancel Pickup</h4>
+<br />
+<h5 style="font-style:italic">Are you sure you want to cancel this pickup?</h5>
+<br />
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalAirport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalAirport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Student.Passwd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Passwd)
+        </dd>*@
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Cancel" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Scheduled Pickups", "Index")
+        </div>
+    }
+</div>
